@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head><title>Task Tracker</title></head>
+<body>
+    <h1>Task Tracker</h1>
+    <form action="/add" method="post">
+        <input type="text" name="task" required>
+        <button type="submit">Add Task</button>
+    </form>
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task }} <a href="{{ url_for('delete', task_id=loop.index0) }}">Delete</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
