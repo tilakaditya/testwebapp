@@ -8,9 +8,14 @@ tasks = []
 def index():
     return render_template('index.html', tasks=tasks)
 
-@app.route("/health")
+@app.route("/healthz")
 def health():
-    return jsonify(status="Healthy"), 200
+    return jsonify(status="ok"), 200
+
+@app.route("/ready")
+def ready():
+    # perform lightweight checks (DB connectivity optionally)
+    return jsonify(ready=True), 200
 
 @app.route('/add', methods=['POST'])
 def add():
