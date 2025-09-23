@@ -7,7 +7,8 @@ WORKDIR /app
 
 COPY requirements.txt .
 RUN python -m pip install --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt \
+    && pip install --no-cache-dir gunicorn
 
 # Copy app source
 COPY . /app
