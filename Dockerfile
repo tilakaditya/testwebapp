@@ -22,4 +22,4 @@ ENV PYTHONUNBUFFERED=1
 
 EXPOSE 8000
 # Replace the command below to match your app entry (Flask: app:app, FastAPI: main:app)
-CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:8000", "--workers", "2"]
+CMD ["python", "app.py"]
